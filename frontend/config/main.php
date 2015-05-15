@@ -11,6 +11,7 @@ return [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
+    'defaultRoute' => 'test/index',
     'components' => [
         'user' => [
             'identityClass' => 'common\models\User',
@@ -25,7 +26,21 @@ return [
                 ],
             ],
         ],
+        'urlManager' => [
+            'enablePrettyUrl' => true,
+            'enableStrictParsing' => false,
+            'showScriptName' => false,
+//            'suffix' => '.html',
+            'rules' => [
+                '<controller:[-\w]+>/<id:\d+>' => '<controller>/view',
+                '<controller:[-\w]+>/<action:[-\w]+>' => '<controller>/<action>',
+                '<controller:[-\w]+>/<action:[-\w]+>/<id:\d+>' => '<controller>/<action>',
+                '<module:[-\w]+>/<controller:[-\w]+>/<action:[-\w]+>' => '<module>/<controller>/<action>',
+            ],
+        ],
         'view' => [
+            'title'=>'Freedom',
+            'defaultExtension' => 'tpl',
             'renderers' => [
                 'tpl' => [
                     'class' => 'yii\smarty\ViewRenderer',
