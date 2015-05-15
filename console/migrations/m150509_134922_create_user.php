@@ -1,6 +1,6 @@
 <?php
 
-use Console\migrations\Common;
+use console\migrations\Common;
 use yii\db\Schema;
 use yii\db\Migration;
 
@@ -19,8 +19,8 @@ class m150509_134922_create_user extends Migration
             'email' => Schema::TYPE_STRING . ' NOT NULL',
 
             'status' => Schema::TYPE_SMALLINT . ' NOT NULL DEFAULT 10',
-            'created_at' => Schema::TYPE_INTEGER . ' NOT NULL',
-            'updated_at' => Schema::TYPE_INTEGER . ' NOT NULL',
+            'created_at' => Schema::TYPE_TIMESTAMP . ' NOT NULL DEFAULT CURRENT_TIMESTAMP',
+            'updated_at' => Schema::TYPE_TIMESTAMP . ' NOT NULL',
         ], Common::getTableOptions($this->db));
     }
 

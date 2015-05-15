@@ -1,6 +1,6 @@
 <?php
 
-namespace Console\migrations;
+namespace console\migrations;
 
 
 class Common
