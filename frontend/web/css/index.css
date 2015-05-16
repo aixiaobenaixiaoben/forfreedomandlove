@@ -1,0 +1,39 @@
+.columns, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, hr, button, article, aside, details, figcaption, figure, footer, header, menu, nav, section {
+    margin: 0;
+    padding: 0;
+    color: #ffffff;
+    font-family: "Consolas", monospace;
+}
+
+div {
+    /*border: 1px dotted #0000ff;*/
+    border: none;
+}
+
+body {
+    background-color: #3a3346;
+}
+
+header {
+    background-color: #ffffff;
+}
+
+header h1 {
+    line-height: 90px;
+    color: #3a3346;
+}
+
+header .nav h4 {
+    color: #3a3346;
+    line-height: 90px;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+footer {
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    background-color: #3bb09c;
+}

@@ -4,7 +4,7 @@ use console\migrations\Common;
 use yii\db\Schema;
 use yii\db\Migration;
 
-class m150514_113223_create_relationship extends Migration
+class m150516_145911_create_relationship extends Migration
 {
     public function safeUp()
     {

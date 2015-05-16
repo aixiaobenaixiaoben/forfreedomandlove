@@ -4,11 +4,11 @@ use console\migrations\Common;
 use yii\db\Schema;
 use yii\db\Migration;
 
-class m150514_113808_create_reader_log extends Migration
+class m150516_145925_create_log extends Migration
 {
     public function safeUp()
     {
-        $this->createTable('{{%reader_log}}', [
+        $this->createTable('{{%log}}', [
             'id' => Schema::TYPE_PK,
             'writings_id' => Schema::TYPE_INTEGER . ' NOT NULL',
             'ip' => Schema::TYPE_STRING . ' NOT NULL',
@@ -19,15 +19,14 @@ class m150514_113808_create_reader_log extends Migration
             'created_at' => Schema::TYPE_TIMESTAMP . ' NOT NULL DEFAULT CURRENT_TIMESTAMP',
         ], Common::getTableOptions($this->db));
 
-        $this->createIndex('reader_log_id', '{{%reader_log}}', 'id');
-        $this->createIndex('reader_log_writings_id', '{{%reader_log}}', 'writings_id');
+        $this->createIndex('log_writings_id', '{{%log}}', 'writings_id');
 
-        $this->addForeignKey('reader_log_fk_writings_id', '{{%reader_log}}', 'writings_id', '{{%writings}}', 'id', 'CASCADE', 'CASCADE');
+        $this->addForeignKey('log_fk_writings_id', '{{%log}}', 'writings_id', '{{%writings}}', 'id', 'CASCADE', 'CASCADE');
 
     }
 
     public function safeDown()
     {
-        $this->dropTable("{{%reader_log}}");
+        $this->dropTable("{{%log}}");
     }
 }

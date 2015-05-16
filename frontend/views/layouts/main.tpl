@@ -8,8 +8,16 @@
     {Html::csrfMetaTags()}
     <title>{Html::encode($this->title)}</title>
 
-    {$this->registerCssFile('/css/index.css')}
+
     {$this->registerJsFile('/js/jquery.min.js')}
+    {$this->registerJsFile('/js/jquery.animate.colors.min.js')}
+    {$this->registerCssFile('/vendor/foundation/css/foundation.min.css')}
+    {$this->registerCssFile('/vendor/semantic/packaged/css/semantic.min.css')}
+
+
+    {$this->registerCssFile('/css/index.css')}
+
+
     {$this->registerJsFile('/js/index.js')}
 
 
@@ -18,7 +26,7 @@
 <body>
 {$this->beginBody()}
 {include file="./header.tpl"}
-<div id="site-content">
+<div id="content">
     {$content}
 </div>
 {include file="./footer.tpl"}
