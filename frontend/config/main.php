@@ -11,6 +11,7 @@ return [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
+    'language' => 'zh_CN',
     'defaultRoute' => 'test/index',
     'components' => [
         'user' => [
@@ -39,7 +40,7 @@ return [
             ],
         ],
         'view' => [
-            'title'=>'Freedom',
+            'title' => 'Dream Stamp',
             'defaultExtension' => 'tpl',
             'renderers' => [
                 'tpl' => [

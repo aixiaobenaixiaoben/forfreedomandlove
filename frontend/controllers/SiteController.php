@@ -49,6 +49,8 @@ class SiteController extends Controller
         ];
     }
 
+    public $layout='site';
+
     /**
      * @inheritdoc
      */
