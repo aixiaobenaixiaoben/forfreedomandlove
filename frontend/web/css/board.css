@@ -1,0 +1,72 @@
+.board {
+    padding: 40px 20px 100px 0;
+    background: url("line.png") right top repeat-y;
+}
+
+.board .tag-name {
+    height: 50px;
+    position: relative;
+    background: url("line.png") left bottom repeat-x;
+}
+
+.board .tag-name i {
+    line-height: 50px;
+    position: absolute;
+    left: 0;
+    color: #34AB96;
+}
+
+.board .tag-name h4 {
+    line-height: 50px;
+    position: absolute;
+    left: 30px;
+    font-weight: bold;
+}
+
+.board .item {
+    padding: 20px 0;
+    background: url("line.png") left bottom repeat-x;
+}
+
+.board .item .title h5 {
+    line-height: 50px;
+    font-weight: bold;
+}
+
+.board .item .content-summary h5 {
+    line-height: 30px;
+    color: #A9ACAD;
+}
+
+.board .item .about {
+    height: 70px;
+    position: relative;
+}
+
+.board .item .about i {
+    position: absolute;
+    line-height: 70px;
+    color: #34AB96;
+}
+
+.board .item .about a {
+    position: absolute;
+    line-height: 70px;
+    color: #34AB96;
+}
+
+.board .item .about .calendar {
+    left: 0;
+}
+
+.board .item .about .date {
+    left: 25px;
+}
+
+.board .item .about .pointing {
+    left: 150px;
+}
+
+.board .item .about .link {
+    left: 175px;
+}

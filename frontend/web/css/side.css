@@ -1,0 +1,96 @@
+.side {
+    padding: 40px 10px 40px 20px;
+}
+
+.side .list {
+    margin-bottom: 20px;
+}
+
+.side .list .title {
+    border-radius: 5px 5px 0 0;
+    background-color: #6D6778;
+}
+
+.side .list .title h5 {
+    text-align: center;
+    font-weight: bold;
+    line-height: 45px;
+}
+
+.side .list .parent {
+    height: 51px;
+    position: relative;
+    cursor: pointer;
+    background-color: #494158;
+}
+
+.side .list .parent .line {
+    padding-left: 5px;
+    height: 51px;
+    background: url("line.png") left bottom repeat-x;
+}
+
+.side .list .parent h5 {
+    line-height: 50px;
+    position: absolute;
+}
+
+.side .list .parent i {
+    line-height: 50px;
+    position: absolute;
+    right: 0;
+    color: #A9ACAD;
+}
+
+.side .list .sub-list {
+    display: none;
+}
+
+.side .list .sub-list .child {
+    height: 46px;
+    position: relative;
+    cursor: pointer;
+    background-color: #F3F3F3;
+}
+
+.side .list .sub-list .child .line {
+    height: 46px;
+    background: url("line.png") left bottom repeat-x;
+}
+
+.side .list .sub-list .child h6 {
+    line-height: 45px;
+    position: absolute;
+    left: 25px;
+    color: #56646F;
+}
+
+.side .list .sub-list .child i {
+    line-height: 45px;
+    position: absolute;
+    left: -8px;
+    color: #56646F;
+}
+
+.side .tag {
+    padding-bottom: 20px;
+    border-radius: 3px;
+    background-color: #494158;
+}
+
+.side .tag .title {
+    padding-left: 20px;
+    height: 51px;
+    background: url("line.png") left bottom repeat-x;
+}
+
+.side .tag .title h5 {
+    line-height: 50px;
+}
+
+.side .tag .parent {
+    line-height: 40px;
+    padding-left: 17px;
+
+}
+

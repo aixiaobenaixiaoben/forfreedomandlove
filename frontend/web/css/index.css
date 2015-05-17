@@ -1,7 +1,7 @@
 .columns, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, hr, button, article, aside, details, figcaption, figure, footer, header, menu, nav, section {
     margin: 0;
     padding: 0;
-    color: #ffffff;
+    color: #FDFDFD;
     font-family: "Consolas", monospace;
 }
 
@@ -11,29 +11,30 @@ div {
 }
 
 body {
-    background-color: #3a3346;
+    background-color: #3A3346;
 }
 
 header {
-    background-color: #ffffff;
+    background-color: #FDFDFD;
 }
 
 header h1 {
-    line-height: 90px;
-    color: #3a3346;
+    line-height: 100px;
+    color: #494158;
 }
 
 header .nav h4 {
-    color: #3a3346;
-    line-height: 90px;
+    color: #575064;
+    line-height: 100px;
     text-align: center;
     font-weight: bold;
     cursor: pointer;
 }
 
 footer {
+    margin-top: 40px;
     height: 45px;
     line-height: 45px;
     text-align: center;
-    background-color: #3bb09c;
+    background-color: #3BAF9B;
 }

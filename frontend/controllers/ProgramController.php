@@ -21,5 +21,11 @@ class ProgramController extends Controller
         return $this->render('index', ['user' => $user]);
     }
 
+    public function actionView()
+    {
+        $user = 'userName';
+        return $this->render('view', ['user' => $user]);
+    }
+
 
 }
