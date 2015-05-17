@@ -74,7 +74,7 @@
 }
 
 .side .tag {
-    padding-bottom: 20px;
+    padding-bottom: 60px;
     border-radius: 3px;
     background-color: #494158;
 }
@@ -91,7 +91,8 @@
 
 .side .tag .parent {
     line-height: 40px;
-    padding-left: 17px;
+    /*padding-left: 17px;*/
+    padding: 5px 17px;
 
 }
 

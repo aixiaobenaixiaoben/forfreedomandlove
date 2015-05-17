@@ -28,6 +28,13 @@ class TagController extends Controller
 
     public $layout = 'site';
 
+    public function beforeAction($action)
+    {
+        if (Yii::$app->user->isGuest) {
+            $this->redirect('/');
+        }
+        return parent::beforeAction($action);
+    }
 
     /**
      * Lists all Tag models.

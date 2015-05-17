@@ -12,7 +12,7 @@ return [
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
     'language' => 'zh_CN',
-    'defaultRoute' => 'program',
+    'defaultRoute' => 'index',
     'components' => [
         'user' => [
             'identityClass' => 'common\models\User',
@@ -29,10 +29,12 @@ return [
         ],
         'urlManager' => [
             'enablePrettyUrl' => true,
-            'enableStrictParsing' => false,
+            'enableStrictParsing' => true,
             'showScriptName' => false,
 //            'suffix' => '.html',
             'rules' => [
+                '<id:\d+>' => 'index/view',
+
                 '<controller:[-\w]+>/<id:\d+>' => '<controller>/view',
                 '<controller:[-\w]+>/<action:[-\w]+>' => '<controller>/<action>',
                 '<controller:[-\w]+>/<action:[-\w]+>/<id:\d+>' => '<controller>/<action>',
@@ -50,7 +52,7 @@ return [
             ],
         ],
         'errorHandler' => [
-            'errorAction' => 'program',
+            'errorAction' => 'index',
         ],
     ],
     'params' => $params,

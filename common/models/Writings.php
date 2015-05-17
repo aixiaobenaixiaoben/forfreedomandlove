@@ -83,4 +83,16 @@ class Writings extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Domain::className(), ['id' => 'domain_id']);
     }
+
+    public static function getList($type = null, $domain_id = null)
+    {
+        $writings = self::find();
+        if ($type) {
+            $writings->where(['type' => $type]);
+        }
+        if ($domain_id) {
+            $writings->andWhere(['domain_id' => $domain_id]);
+        }
+        return $writings->orderBy(['created_at' => 'DESC'])->all();
+    }
 }

@@ -31,8 +31,8 @@
 
         {foreach $tags as $tag}
             <div class="parent">
-                <a class="ui teal  ribbon label" href="/program/tag/{$tag.id}">{$tag.name}</a>
-                <a class="ui teal  tag  label" href="/program/tag/{$tag.id}">{count($tag.relationships)}个话题</a>
+                <a class="ui teal large ribbon label" href="/program/tag/{$tag.id}">{$tag.name}</a>
+                <a class="ui teal large tag  label" href="/program/tag/{$tag.id}">{count($tag.relationships)}个话题</a>
             </div>
         {/foreach}
 

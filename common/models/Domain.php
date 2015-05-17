@@ -57,4 +57,13 @@ class Domain extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Writings::className(), ['domain_id' => 'id']);
     }
+
+    public static function getList($type = null)
+    {
+        $domains = self::find();
+        if ($type) {
+            $domains->Where(['type' => $type]);
+        }
+        return $domains->with('writings')->all();
+    }
 }

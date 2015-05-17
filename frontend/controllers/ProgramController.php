@@ -2,7 +2,6 @@
 
 namespace frontend\controllers;
 
-use common\models\AjaxResponse;
 use common\models\Domain;
 use common\models\Relationship;
 use common\models\Tag;
@@ -20,21 +19,9 @@ class ProgramController extends Controller
 
     public function actionIndex()
     {
-        $writings = Writings::find()
-            ->where(['type' => Writings::TYPE_OF_PROGRAMING])
-            ->orderBy(['created_at' => 'DESC'])
-            ->all();
-
-        $domains = Domain::find()
-            ->where(['type' => Writings::TYPE_OF_PROGRAMING])
-            ->with('writings')
-            ->all();
-
-        $tags = Tag::find()
-            ->where(['type' => Writings::TYPE_OF_PROGRAMING])
-            ->with('relationships')
-            ->all();
-
+        $writings = Writings::getList(Writings::TYPE_OF_PROGRAMING);
+        $domains = Domain::getList(Writings::TYPE_OF_PROGRAMING);
+        $tags = Tag::getList(Writings::TYPE_OF_PROGRAMING);
 
         return $this->render('index', [
             'tag' => '',
@@ -46,24 +33,13 @@ class ProgramController extends Controller
 
     public function actionView($id)
     {
-        $writing = Writings::findOne([
-            'id' => $id,
-            'type' => Writings::TYPE_OF_PROGRAMING,
-        ]);
+        $writing = Writings::findOne(['id' => $id, 'type' => Writings::TYPE_OF_PROGRAMING,]);
 
         if (!$writing) {
             $this->redirect('/');
         }
-
-        $domains = Domain::find()
-            ->where(['type' => Writings::TYPE_OF_PROGRAMING])
-            ->with('writings')
-            ->all();
-
-        $tags = Tag::find()
-            ->where(['type' => Writings::TYPE_OF_PROGRAMING])
-            ->with('relationships')
-            ->all();
+        $domains = Domain::getList(Writings::TYPE_OF_PROGRAMING);
+        $tags = Tag::getList(Writings::TYPE_OF_PROGRAMING);
 
         return $this->render('view', [
             'tags' => $tags,
@@ -74,16 +50,13 @@ class ProgramController extends Controller
 
     public function actionTag($id)
     {
-        $tag = Tag::findOne([
-            'id' => $id,
-            'type' => Writings::TYPE_OF_PROGRAMING
-        ]);
+        $tag = Tag::findOne(['id' => $id, 'type' => Writings::TYPE_OF_PROGRAMING]);
 
-        $relationships = Relationship::find()
-            ->where(['tag_id' => $id])
-            ->with('writings')
-            ->all();
+        if (!$tag) {
+            $this->redirect('/');
+        }
 
+        $relationships = Relationship::getList($id);
         $writings = [];
         foreach ($relationships as $relationship) {
             $writing = $relationship->writings;
@@ -93,17 +66,8 @@ class ProgramController extends Controller
             $writings[] = $writing;
         }
 
-
-        $domains = Domain::find()
-            ->where(['type' => Writings::TYPE_OF_PROGRAMING])
-            ->with('writings')
-            ->all();
-
-        $tags = Tag::find()
-            ->where(['type' => Writings::TYPE_OF_PROGRAMING])
-            ->with('relationships')
-            ->all();
-
+        $domains = Domain::getList(Writings::TYPE_OF_PROGRAMING);
+        $tags = Tag::getList(Writings::TYPE_OF_PROGRAMING);
 
         return $this->render('index', [
             'tag' => $tag,
@@ -115,28 +79,15 @@ class ProgramController extends Controller
 
     public function actionDomain($id)
     {
-        $domain = Domain::findOne([
-            'id' => $id,
-            'type' => Writings::TYPE_OF_PROGRAMING
-        ]);
+        $domain = Domain::findOne(['id' => $id, 'type' => Writings::TYPE_OF_PROGRAMING]);
 
-        $writings = Writings::find()
-            ->where([
-                'type' => Writings::TYPE_OF_PROGRAMING,
-                'domain_id' => $id,
-            ])->all();
+        if (!$domain) {
+            $this->redirect('/');
+        }
 
-
-        $domains = Domain::find()
-            ->where(['type' => Writings::TYPE_OF_PROGRAMING])
-            ->with('writings')
-            ->all();
-
-        $tags = Tag::find()
-            ->where(['type' => Writings::TYPE_OF_PROGRAMING])
-            ->with('relationships')
-            ->all();
-
+        $writings = Writings::getList(Writings::TYPE_OF_PROGRAMING, $id);
+        $domains = Domain::getList(Writings::TYPE_OF_PROGRAMING);
+        $tags = Tag::getList(Writings::TYPE_OF_PROGRAMING);
 
         return $this->render('index', [
             'tag' => $domain,

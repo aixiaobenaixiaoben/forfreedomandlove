@@ -1,8 +1,13 @@
 $(function () {
 
     initHoverColor();
+    initColorOfTagIcon();
     listenMenuIconClick();
 });
+
+function initColorOfTagIcon() {
+    var icons = $('.side .tag .label:odd').removeClass('teal').addClass('purple');
+}
 
 function listenMenuIconClick() {
     $('.program .side .list .parent i').click(function () {

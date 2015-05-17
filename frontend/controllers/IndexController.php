@@ -2,14 +2,13 @@
 
 namespace frontend\controllers;
 
-use common\models\AjaxResponse;
 use common\models\Domain;
 use common\models\Relationship;
 use common\models\Tag;
 use common\models\Writings;
 use yii\web\Controller;
 
-class LiteratureController extends Controller
+class IndexController extends Controller
 {
 
     public function beforeAction($action)
@@ -20,9 +19,9 @@ class LiteratureController extends Controller
 
     public function actionIndex()
     {
-        $writings = Writings::getList(Writings::TYPE_OF_LITERATURE);
-        $domains = Domain::getList(Writings::TYPE_OF_LITERATURE);
-        $tags = Tag::getList(Writings::TYPE_OF_LITERATURE);
+        $writings = Writings::getList();
+        $domains = Domain::getList();
+        $tags = Tag::getList();
 
         return $this->render('index', [
             'tag' => '',
@@ -34,14 +33,12 @@ class LiteratureController extends Controller
 
     public function actionView($id)
     {
-        $writing = Writings::findOne(['id' => $id, 'type' => Writings::TYPE_OF_LITERATURE,]);
-
+        $writing = Writings::findOne($id);
         if (!$writing) {
             $this->redirect('/');
         }
-
-        $domains = Domain::getList(Writings::TYPE_OF_LITERATURE);
-        $tags = Tag::getList(Writings::TYPE_OF_LITERATURE);
+        $domains = Domain::getList();
+        $tags = Tag::getList();
 
         return $this->render('view', [
             'tags' => $tags,
@@ -52,8 +49,7 @@ class LiteratureController extends Controller
 
     public function actionTag($id)
     {
-        $tag = Tag::findOne(['id' => $id, 'type' => Writings::TYPE_OF_LITERATURE]);
-
+        $tag = Tag::findOne($id);
         if (!$tag) {
             $this->redirect('/');
         }
@@ -62,14 +58,10 @@ class LiteratureController extends Controller
         $writings = [];
         foreach ($relationships as $relationship) {
             $writing = $relationship->writings;
-            if ($writing->type != Writings::TYPE_OF_LITERATURE) {
-                continue;
-            }
             $writings[] = $writing;
         }
-
-        $domains = Domain::getList(Writings::TYPE_OF_LITERATURE);
-        $tags = Tag::getList(Writings::TYPE_OF_LITERATURE);
+        $domains = Domain::getList();
+        $tags = Tag::getList();
 
         return $this->render('index', [
             'tag' => $tag,
@@ -81,15 +73,13 @@ class LiteratureController extends Controller
 
     public function actionDomain($id)
     {
-        $domain = Domain::findOne(['id' => $id, 'type' => Writings::TYPE_OF_LITERATURE]);
-
+        $domain = Domain::findOne($id);
         if (!$domain) {
             $this->redirect('/');
         }
-
-        $writings = Writings::getList(Writings::TYPE_OF_LITERATURE, $id);
-        $domains = Domain::getList(Writings::TYPE_OF_LITERATURE);
-        $tags = Tag::getList(Writings::TYPE_OF_LITERATURE);
+        $writings = Writings::getList(null, $id);
+        $domains = Domain::getList();
+        $tags = Tag::getList();
 
         return $this->render('index', [
             'tag' => $domain,
