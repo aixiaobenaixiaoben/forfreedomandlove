@@ -2,62 +2,40 @@
     <div class="list">
         <div class="title"><h5>目录</h5></div>
 
-        <div class="parent">
-            <div class="line">
-                <h5>term1</h5><i class="large unordered list icon"></i>
+        {foreach $domains as $domain}
+            <div class="parent">
+                <div class="line">
+                    <a href="/program/domain/{$domain.id}"><h5>{$domain.name}</h5></a>
+                    <i class="large unordered list icon"></i>
+                </div>
             </div>
-        </div>
-
-        <div class="sub-list">
-            <div class="child">
-                <div class="line"><i class="big angle right icon"></i><h6>term1</h6></div>
+            <div class="sub-list">
+                {foreach $domain.writings as $writing}
+                    <div class="child">
+                        <a href="/program/{$writing.id}">
+                            <div class="line">
+                                <i class="big angle right icon"></i>
+                                <h6>{$writing.title}</h6>
+                            </div>
+                        </a>
+                    </div>
+                {/foreach}
             </div>
-            <div class="child">
-                <div class="line"><i class="big angle right icon"></i><h6>term1</h6></div>
-            </div>
-        </div>
-
-        <div class="parent">
-            <div class="line">
-                <h5>term1</h5><i class="large unordered list icon"></i>
-            </div>
-        </div>
-
-        <div class="sub-list">
-            <div class="child">
-                <div class="line"><i class="big angle right icon"></i><h6>term1</h6></div>
-            </div>
-            <div class="child">
-                <div class="line"><i class="big angle right icon"></i><h6>term1</h6></div>
-            </div>
-        </div>
+        {/foreach}
 
     </div>
-
 
     <div class="tag">
 
         <div class="title"><h5>标签</h5></div>
 
-        <div class="parent">
-            <a class="ui teal  ribbon label">小狗小雨</a>
-            <a class="ui teal  tag  label">小猫</a>
-        </div>
+        {foreach $tags as $tag}
+            <div class="parent">
+                <a class="ui teal  ribbon label" href="/program/tag/{$tag.id}">{$tag.name}</a>
+                <a class="ui teal  tag  label" href="/program/tag/{$tag.id}">{count($tag.relationships)}个话题</a>
+            </div>
+        {/foreach}
 
-        <div class="parent">
-            <a class="ui purple ribbon label">小狗</a>
-            <a class="ui purple tag  label">小猫</a>
-        </div>
-
-        <div class="parent">
-            <a class="ui teal  ribbon label">小狗</a>
-            <a class="ui teal  tag  label">小猫</a>
-        </div>
-
-        <div class="parent">
-            <a class="ui purple ribbon label">ffffffff狗</a>
-            <a class="ui purple tag  label">小猫</a>
-        </div>
 
     </div>
 </div>

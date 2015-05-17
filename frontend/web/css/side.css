@@ -1,5 +1,5 @@
 .side {
-    padding: 40px 10px 40px 20px;
+    padding: 50px 10px 40px 20px;
 }
 
 .side .list {
@@ -25,14 +25,15 @@
 }
 
 .side .list .parent .line {
-    padding-left: 5px;
     height: 51px;
     background: url("line.png") left bottom repeat-x;
 }
 
 .side .list .parent h5 {
+    margin-left: 15px;
     line-height: 50px;
     position: absolute;
+    font-weight: bold;
 }
 
 .side .list .parent i {
@@ -61,14 +62,14 @@
 .side .list .sub-list .child h6 {
     line-height: 45px;
     position: absolute;
-    left: 25px;
+    left: 33px;
     color: #56646F;
 }
 
 .side .list .sub-list .child i {
     line-height: 45px;
     position: absolute;
-    left: -8px;
+    left: 0;
     color: #56646F;
 }
 

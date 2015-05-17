@@ -39,11 +39,11 @@
 }
 
 .view .item .about .tag {
-    left: 150px;
+    left: 240px;
 }
 
 .view .item .about .tag-name {
-    left: 175px;
+    left: 265px;
 }
 
 .view .content {
@@ -58,3 +58,4 @@
 .view .content h4 {
     line-height: 50px;
 }
+

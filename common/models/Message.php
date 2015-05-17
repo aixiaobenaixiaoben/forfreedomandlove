@@ -42,12 +42,12 @@ class Message extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app\models\message', 'ID'),
-            'name' => Yii::t('app\models\message', 'Name'),
-            'email' => Yii::t('app\models\message', 'Email'),
-            'title' => Yii::t('app\models\message', 'Title'),
-            'message' => Yii::t('app\models\message', 'Message'),
-            'created_at' => Yii::t('app\models\message', 'Created At'),
+            'id' => 'ID',
+            'name' => 'Name',
+            'email' => 'Email',
+            'title' => 'Title',
+            'message' => 'Message',
+            'created_at' => 'Created At',
         ];
     }
 }

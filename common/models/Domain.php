@@ -10,6 +10,7 @@ use Yii;
  * @property integer $id
  * @property string $name
  * @property string $created_at
+ * @property integer $type
  *
  * @property Writings[] $writings
  */
@@ -29,7 +30,8 @@ class Domain extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name'], 'required'],
+            [['name', 'type'], 'required'],
+            [['type'], 'integer'],
             [['created_at'], 'safe'],
             [['name'], 'string', 'max' => 255]
         ];
@@ -41,9 +43,10 @@ class Domain extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app\models\domain', 'ID'),
-            'name' => Yii::t('app\models\domain', 'Name'),
-            'created_at' => Yii::t('app\models\domain', 'Created At'),
+            'id' => 'ID',
+            'type' => 'Type',
+            'name' => 'Name',
+            'created_at' => 'Created At',
         ];
     }
 

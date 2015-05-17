@@ -2,49 +2,29 @@
     <div class="large-8 medium-8 columns">
         <div class="board">
 
-            <div class="tag-name">
-                <i class="large tag icon"></i>
-                <h4>PHP</h4>
-            </div>
+            {if $tag!=''}
+                <div class="tag-name">
+                    <i class="large tag icon"></i>
+                    <h4>{$tag.name}</h4>
+                </div>
+            {/if}
 
-            <div class="item">
-                <div class="title">
-                    <h5>这是文章的标题title</h5>
+            {foreach $writings as $writing}
+                <div class="item">
+                    <div class="title">
+                        <a href="/program/{$writing.id}"><h5>{$writing.title}</h5></a>
+                    </div>
+                    <div class="content-summary">
+                        <h5>{$writing.content}</h5>
+                    </div>
+                    <div class="about">
+                        <i class="calendar icon"></i>
+                        <a class="date">{$writing.created_at}</a>
+                        <i class="pointing right icon"></i>
+                        <a class="link" href="/program/{$writing.id}">forfreedomandlove.com/program/{$writing.id}</a>
+                    </div>
                 </div>
-                <div class="content-summary">
-                    <h5>到了南非是蓝菲力克是你发空间哦觉得没法；看；svmLJLJFLj，了努力尽快离开那里可能[...]</h5>
-                </div>
-                <div class="about">
-                    <i class="calendar icon"></i><a class="date">2015-04-09</a>
-                    <i class="pointing right icon"></i><a class="link">forfreedomandlove.com/program/100</a>
-                </div>
-            </div>
-
-            <div class="item">
-                <div class="title">
-                    <h5>这是文章的标题title</h5>
-                </div>
-                <div class="content-summary">
-                    <h5>到了南非是蓝菲力克是你发空间哦觉得没法；看；svmLJLJFLj，了努力尽快离开那里可能[...]</h5>
-                </div>
-                <div class="about">
-                    <i class="calendar icon"></i><a class="date">2015-04-09</a>
-                    <i class="pointing right icon"></i><a class="link">forfreedomandlove.com/program/100</a>
-                </div>
-            </div>
-
-            <div class="item">
-                <div class="title">
-                    <h5>这是文章的标题title</h5>
-                </div>
-                <div class="content-summary">
-                    <h5>到了南非是蓝菲力克是你发空间哦觉得没法；看；svmLJLJFLj，了努力尽快离开那里可能[...]</h5>
-                </div>
-                <div class="about">
-                    <i class="calendar icon"></i><a class="date">2015-04-09</a>
-                    <i class="pointing right icon"></i><a class="link">forfreedomandlove.com/program/100</a>
-                </div>
-            </div>
+            {/foreach}
 
 
         </div>

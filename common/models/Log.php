@@ -15,6 +15,8 @@ use Yii;
  * @property string $city
  * @property string $isp
  * @property string $created_at
+ *
+ * @property Writings $writings
  */
 class Log extends \yii\db\ActiveRecord
 {
@@ -45,14 +47,22 @@ class Log extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app\models\log', 'ID'),
-            'writings_id' => Yii::t('app\models\log', 'Writings ID'),
-            'ip' => Yii::t('app\models\log', 'Ip'),
-            'country' => Yii::t('app\models\log', 'Country'),
-            'province' => Yii::t('app\models\log', 'Province'),
-            'city' => Yii::t('app\models\log', 'City'),
-            'isp' => Yii::t('app\models\log', 'Carrier'),
-            'created_at' => Yii::t('app\models\log', 'Created At'),
+            'id' => 'ID',
+            'writings_id' => 'Writings ID',
+            'ip' => 'Ip',
+            'country' => 'Country',
+            'province' => 'Province',
+            'city' => 'City',
+            'isp' => 'Carrier',
+            'created_at' => 'Created At',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getWritings()
+    {
+        return $this->hasOne(Writings::className(), ['id' => 'writings_id']);
     }
 }

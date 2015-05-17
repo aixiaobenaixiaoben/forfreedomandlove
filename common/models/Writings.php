@@ -20,6 +20,9 @@ use Yii;
  */
 class Writings extends \yii\db\ActiveRecord
 {
+    CONST TYPE_OF_PROGRAMING = 1;
+    CONST TYPE_OF_LITERATURE = 2;
+
     /**
      * @inheritdoc
      */
@@ -48,12 +51,12 @@ class Writings extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app\models\writings', 'ID'),
-            'title' => Yii::t('app\models\writings', 'Title'),
-            'content' => Yii::t('app\models\writings', 'Content'),
-            'type' => Yii::t('app\models\writings', '1:Programing 2:Literature'),
-            'domain_id' => Yii::t('app\models\writings', 'Domain ID'),
-            'created_at' => Yii::t('app\models\writings', 'Created At'),
+            'id' => 'ID',
+            'title' => 'Title',
+            'content' => 'Content',
+            'type' => '1:Programing 2:Literature',
+            'domain_id' => 'Domain ID',
+            'created_at' => 'Created At',
         ];
     }
 

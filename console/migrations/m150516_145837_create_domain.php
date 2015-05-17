@@ -10,6 +10,7 @@ class m150516_145837_create_domain extends Migration
     {
         $this->createTable('{{%domain}}', [
             'id' => Schema::TYPE_PK,
+            'type' => Schema::TYPE_INTEGER . ' NOT NULL DEFAULT 1',
             'name' => Schema::TYPE_STRING . ' NOT NULL',
             'created_at' => Schema::TYPE_TIMESTAMP . ' NOT NULL DEFAULT CURRENT_TIMESTAMP',
         ], Common::getTableOptions($this->db));

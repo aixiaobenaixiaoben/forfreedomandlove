@@ -9,7 +9,10 @@ use Yii;
  *
  * @property integer $id
  * @property string $name
+ * @property integer $type
  * @property string $created_at
+ *
+ * @property Relationship[] $relationships
  */
 class Tag extends \yii\db\ActiveRecord
 {
@@ -27,8 +30,9 @@ class Tag extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name'], 'required'],
+            [['name', 'type'], 'required'],
             [['created_at'], 'safe'],
+            [['type'], 'integer'],
             [['name'], 'string', 'max' => 255]
         ];
     }
@@ -39,9 +43,18 @@ class Tag extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app\models\tag', 'ID'),
-            'name' => Yii::t('app\models\tag', 'Name'),
-            'created_at' => Yii::t('app\models\tag', 'Created At'),
+            'id' => 'ID',
+            'name' => 'Name',
+            'type' => 'Type',
+            'created_at' => 'Created At',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getRelationships()
+    {
+        return $this->hasMany(Relationship::className(), ['tag_id' => 'id']);
     }
 }

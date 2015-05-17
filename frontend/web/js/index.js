@@ -6,7 +6,7 @@ $(function () {
 
 function listenMenuIconClick() {
     $('.program .side .list .parent i').click(function () {
-        $(this).parents('.parent').next().slideToggle();
+        $(this).parents('.parent').next().slideToggle(300);
     });
 }
 
@@ -36,7 +36,7 @@ function initHoverColor() {
         function () {
             $(this).animate({
                 'background-color': '#494158'
-            });
+            }, 'fast');
         }
     );
 
@@ -62,7 +62,7 @@ function initHoverColor() {
         function () {
             $(this).animate({
                 'background-color': '#F3F3F3'
-            });
+            }, 'fast');
         }
     );
 }

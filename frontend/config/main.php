@@ -50,7 +50,7 @@ return [
             ],
         ],
         'errorHandler' => [
-            'errorAction' => 'site/error',
+            'errorAction' => 'program',
         ],
     ],
     'params' => $params,
