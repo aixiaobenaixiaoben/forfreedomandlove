@@ -1,5 +1,5 @@
 .view {
-    padding: 40px 20px 100px 0;
+    padding: 40px 10px 40px 0;
     background: url("line.png") right top repeat-y;
 }
 
@@ -39,11 +39,11 @@
 }
 
 .view .item .about .tag {
-    left: 240px;
+    left: 210px;
 }
 
 .view .item .about .tag-name {
-    left: 265px;
+    left: 235px;
 }
 
 .view .content {

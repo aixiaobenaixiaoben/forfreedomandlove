@@ -1,5 +1,5 @@
 .board {
-    padding: 30px 20px 100px 0;
+    padding: 30px 10px 40px 0;
     background: url("line.png") right top repeat-y;
 }
 
@@ -39,35 +39,43 @@
 }
 
 .board .item .about {
-    height: 70px;
+    height: 60px;
+    padding-top: 20px;
     position: relative;
 }
 
+.board .item .about .columns {
+    position: relative;
+    height: 40px;
+}
+
 .board .item .about i {
-    position: absolute;
-    line-height: 70px;
+    line-height: 40px;
     color: #34AB96;
 }
 
 .board .item .about a {
-    position: absolute;
-    line-height: 70px;
+    line-height: 40px;
     color: #34AB96;
 }
 
 .board .item .about .calendar {
+    position: absolute;
     left: 0;
 }
 
 .board .item .about .date {
+    position: absolute;
     left: 25px;
     cursor: auto;
 }
 
 .board .item .about .pointing {
-    left: 240px;
+    position: absolute;
+    left: -5px;
 }
 
 .board .item .about .link {
-    left: 265px;
+    position: absolute;
+    left: 20px;
 }

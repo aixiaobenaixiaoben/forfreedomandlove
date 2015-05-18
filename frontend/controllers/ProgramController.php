@@ -3,6 +3,7 @@
 namespace frontend\controllers;
 
 use common\models\Domain;
+use common\models\Log;
 use common\models\Relationship;
 use common\models\Tag;
 use common\models\Writings;
@@ -13,6 +14,7 @@ class ProgramController extends Controller
 
     public function beforeAction($action)
     {
+        $this->getView()->title = 'Programming';
         return parent::beforeAction($action);
     }
 
@@ -38,6 +40,8 @@ class ProgramController extends Controller
         if (!$writing) {
             $this->redirect('/');
         }
+        Log::createLog($id);
+
         $domains = Domain::getList(Writings::TYPE_OF_PROGRAMING);
         $tags = Tag::getList(Writings::TYPE_OF_PROGRAMING);
 

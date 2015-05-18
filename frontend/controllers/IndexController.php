@@ -2,10 +2,14 @@
 
 namespace frontend\controllers;
 
+use common\models\AjaxResponse;
 use common\models\Domain;
+use common\models\Log;
 use common\models\Relationship;
 use common\models\Tag;
 use common\models\Writings;
+use frontend\models\CreateContactForm;
+use Yii;
 use yii\web\Controller;
 
 class IndexController extends Controller
@@ -13,12 +17,14 @@ class IndexController extends Controller
 
     public function beforeAction($action)
     {
+        $this->enableCsrfValidation = false;
         return parent::beforeAction($action);
     }
 
-
     public function actionIndex()
     {
+        Log::countVisit('HomePage');
+
         $writings = Writings::getList();
         $domains = Domain::getList();
         $tags = Tag::getList();
@@ -37,6 +43,9 @@ class IndexController extends Controller
         if (!$writing) {
             $this->redirect('/');
         }
+
+        Log::createLog($id);
+
         $domains = Domain::getList();
         $tags = Tag::getList();
 
@@ -46,6 +55,7 @@ class IndexController extends Controller
             'writing' => $writing,
         ]);
     }
+
 
     public function actionTag($id)
     {
@@ -89,5 +99,34 @@ class IndexController extends Controller
         ]);
     }
 
+    public function actionContact()
+    {
+        $this->getView()->title = 'Contact';
 
+        if (isset($_GET['res'])) {
+            $massage = $_GET['res'];
+            $massage = addslashes($massage);
+            Log::countVisit($massage);
+        }
+
+        $writings = Writings::getList();
+        $domains = Domain::getList();
+        $tags = Tag::getList();
+
+        return $this->render('contact', [
+            'tag' => '',
+            'tags' => $tags,
+            'domains' => $domains,
+            'writings' => $writings,
+        ]);
+    }
+
+    public function actionMessage()
+    {
+        $form = new CreateContactForm();
+        if ($form->load(Yii::$app->request->post(), '') && $form->validate() && $form->save()) {
+            AjaxResponse::success();
+        }
+        AjaxResponse::fail($form->errors);
+    }
 }

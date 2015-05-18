@@ -18,11 +18,15 @@
                         <h5>{$writing.content}</h5>
                     </div>
                     <div class="about">
-                        <i class="calendar icon"></i>
-                        <a class="date">{$writing.created_at}</a>
-                        <i class="pointing right icon"></i>
-                        <a class="link"
-                           href="/literature/{$writing.id}">forfreedomandlove.com/literature/{$writing.id}</a>
+                        <div class="large-5 columns">
+                            <i class="calendar icon"></i>
+                            <a class="date">{$writing.created_at}</a>
+                        </div>
+                        <div class="large-7 columns">
+                            <i class="pointing right icon"></i>
+                            <a class="link"
+                               href="/literature/{$writing.id}">freedomandlove.com/literature/{$writing.id}</a>
+                        </div>
                     </div>
                 </div>
             {/foreach}

@@ -2,11 +2,101 @@ $(function () {
 
     initHoverColor();
     initColorOfTagIcon();
+    initBoardLeftPadding();
+    initContactPadding();
     listenMenuIconClick();
+    listenSubmitMessage();
+    cutUpContent();
+
 });
 
+function cutUpContent() {
+    var containers = $('.board .item .content-summary h5');
+    containers.each(function () {
+        var content = $(this).text();
+        content = content.substring(0, 100);
+        $(this).text(content + '[……]');
+    });
+}
+
+function listenSubmitMessage() {
+
+    var preg = /^\w+(\.\w+)*@\w+(\.\w+)+$/;
+    $('.form .contact .send-button').click(function () {
+        var name = $.trim(form.find('#guest-name').val());
+        var email = $.trim(form.find('#guest-email').val());
+        var title = $.trim(form.find('#guest-title').val());
+        var content = $.trim(form.find('#guest-content').val());
+
+        if (name == '') {
+            alert('是不是该留一下您的芳名呢');
+            return false;
+        }
+        if (email == '') {
+            alert('填一下邮箱呗,酱紫我才能联系到你啊');
+            return false;
+        }
+        if (!preg.test(email)) {
+            alert('邮箱格式好像不太对哦');
+            return false;
+        }
+        if (title == '') {
+            alert('关于什么主题呢');
+            return false;
+        }
+        if (content == '') {
+            alert('想说些什么就写下来吧^o^');
+            return false;
+        }
+
+        var data = {};
+        data.name = name;
+        data.email = email;
+        data.title = title;
+        data.content = content;
+        $.ajax({
+            url: '/index/message',
+            type: 'post',
+            data: data,
+            dataType: 'json',
+            success: function (res) {
+                alert('感谢你的留言,我会尽快通过邮件和你取得联系');
+                location.href = 'http://freedom.forfreedomandlove.com';
+            },
+            error: function (res) {
+                alert('sorry,留言没有成功记录下来,可能发生了什么不对的事情,再试一次看看怎么样');
+                location.href = 'http://freedom.forfreedomandlove.com/index/contact';
+            }
+        });
+    });
+}
+
+function initContactPadding() {
+    if (window.innerWidth > 1024) {
+        $('.form .contact').addClass('petty');
+    }
+}
+
+//同时为了配合foundation的大中小尺寸
+function initBoardLeftPadding() {
+    if (window.innerWidth < 1024) {
+        $('.board').css({'padding-left': '10px'});
+        $('.view').css({'padding-left': '10px'});
+        $('.board .item .about').css({'height': '100px'});
+    } else {
+        $('.board').css({'padding-bottom': '120px'});
+        $('.view').css({'padding-bottom': '120px'});
+    }
+
+    if (window.innerWidth < 640) {
+        $('header h1').css({'text-align': 'center'});
+    } else if (window.innerWidth < 1024 && window.innerWidth >= 640) {
+        $('header h1').css({'padding-left': '100px'});
+    }
+}
+
 function initColorOfTagIcon() {
-    var icons = $('.side .tag .label:odd').removeClass('teal').addClass('purple');
+    $('.side .tag .label:odd').removeClass('teal').addClass('purple');
 }
 
 function listenMenuIconClick() {

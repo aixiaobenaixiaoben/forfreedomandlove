@@ -1,0 +1,59 @@
+* {
+    margin: 0;
+    padding: 0;
+    color: #C4E9E0;
+    font-family: "Consolas", monospace;
+    font-size: large;
+    border: none;
+}
+
+button {
+    background: #006674;
+    cursor: pointer;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 3px;
+    text-align: center;
+    padding: 0 20px;
+}
+
+div {
+    border-radius: 5px;
+}
+
+body {
+    background-color: #00AD92;
+    text-align: center;
+}
+
+header {
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: xx-large;
+}
+
+h2 {
+    font-size: medium;
+}
+
+.grid {
+    /* width: 400px;
+    height: 400px;
+    font-size:80px;在JS中定义*/
+    margin: auto;
+    background: #006674;
+    border: 20px solid #006674;
+    position: relative;
+}
+
+.grid .cell, .number_cell {
+    width: 20%;
+    height: 20%;
+    line-height: 250%;
+    font-size: 40%;
+    background: #418C88;
+    margin: 2.5%;
+    position: absolute;
+}

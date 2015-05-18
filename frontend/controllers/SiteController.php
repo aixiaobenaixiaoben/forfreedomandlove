@@ -67,14 +67,6 @@ class SiteController extends Controller
         ];
     }
 
-    public function beforeAction($action)
-    {
-        if (Yii::$app->user->isGuest) {
-            $this->redirect('/');
-        }
-        return parent::beforeAction($action);
-    }
-
     public function actionIndex()
     {
         return $this->render('index');

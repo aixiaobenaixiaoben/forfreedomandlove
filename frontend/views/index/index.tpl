@@ -1,5 +1,5 @@
 <div class="program row">
-    <div class="large-8 medium-8 columns">
+    <div class="large-8 medium-7 columns">
         <div class="board">
 
             {if $tag!=''}
@@ -18,10 +18,14 @@
                         <h5>{$writing.content}</h5>
                     </div>
                     <div class="about">
-                        <i class="calendar icon"></i>
-                        <a class="date">{$writing.created_at}</a>
-                        <i class="pointing right icon"></i>
-                        <a class="link" href="/{$writing.id}">forfreedomandlove.com/{$writing.id}</a>
+                        <div class="large-5 columns">
+                            <i class="calendar icon"></i>
+                            <a class="date">{$writing.created_at}</a>
+                        </div>
+                        <div class="large-7 columns">
+                            <i class="pointing right icon"></i>
+                            <a class="link" href="/{$writing.id}">freedomandlove.com/{$writing.id}</a>
+                        </div>
                     </div>
                 </div>
             {/foreach}
@@ -29,7 +33,7 @@
 
         </div>
     </div>
-    <div class="large-4 medium-4 columns">
+    <div class="large-4 medium-5 columns">
         {include file="./side.tpl"}
     </div>
 </div>

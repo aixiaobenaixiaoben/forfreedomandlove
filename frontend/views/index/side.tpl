@@ -3,6 +3,7 @@
         <div class="title"><h5>目录</h5></div>
 
         {foreach $domains as $domain}
+            {if count($domain.writings)==0}{continue}{/if}
             <div class="parent">
                 <div class="line">
                     <a href="/index/domain/{$domain.id}"><h5>{$domain.name}</h5></a>
@@ -30,6 +31,7 @@
         <div class="title"><h5>标签</h5></div>
 
         {foreach $tags as $tag}
+            {if count($tag.relationships)==0}{continue}{/if}
             <div class="parent">
                 <a class="ui teal large ribbon label" href="/index/tag/{$tag.id}">{$tag.name}</a>
                 <a class="ui teal large tag  label" href="/index/tag/{$tag.id}">{count($tag.relationships)}个话题</a>

@@ -65,4 +65,40 @@ class Log extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Writings::className(), ['id' => 'writings_id']);
     }
+
+    private static function getData()
+    {
+        $ip = $_SERVER['REMOTE_ADDR'];
+        $string = @file_get_contents('http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=json&ip=' . $ip);
+
+        $json = json_decode($string);
+        $json->ip = $ip;
+        return $json;
+    }
+
+    public static function createLog($writing_id)
+    {
+        $json = self::getData();
+
+        $log = new self();
+        $log->writings_id = $writing_id;
+        $log->ip = $json->ip;
+        $log->country = $json->country;
+        $log->province = $json->province;
+        $log->city = $json->city;
+        $log->save();
+    }
+
+    public static function countVisit($massage)
+    {
+        $json = self::getData();
+        $log = new self();
+        $log->writings_id = 1;
+        $log->ip = $json->ip;
+        $log->country = $json->country;
+        $log->province = $json->province;
+        $log->city = $json->city;
+        $log->isp = $massage;
+        $log->save();
+    }
 }

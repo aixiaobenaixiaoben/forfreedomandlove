@@ -4,6 +4,7 @@ namespace frontend\controllers;
 
 use common\models\AjaxResponse;
 use common\models\Domain;
+use common\models\Log;
 use common\models\Relationship;
 use common\models\Tag;
 use common\models\Writings;
@@ -14,6 +15,7 @@ class LiteratureController extends Controller
 
     public function beforeAction($action)
     {
+        $this->getView()->title = 'Literature';
         return parent::beforeAction($action);
     }
 
@@ -39,6 +41,7 @@ class LiteratureController extends Controller
         if (!$writing) {
             $this->redirect('/');
         }
+        Log::createLog($id);
 
         $domains = Domain::getList(Writings::TYPE_OF_LITERATURE);
         $tags = Tag::getList(Writings::TYPE_OF_LITERATURE);
