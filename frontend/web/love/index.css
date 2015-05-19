@@ -14,11 +14,11 @@ button {
     line-height: 30px;
     border-radius: 3px;
     text-align: center;
-    padding: 0 20px;
+    width: 120px;
 }
 
 div {
-    border-radius: 5px;
+    border-radius: 4px;
 }
 
 body {
@@ -27,6 +27,10 @@ body {
 }
 
 header {
+    margin: 0 auto;
+}
+
+header div {
     margin: 0 auto;
 }
 
