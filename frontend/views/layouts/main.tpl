@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {Html::csrfMetaTags()}
     <title>{Html::encode($this->title)}</title>
-    <link href="css/freedom.ico" rel="shortcut icon">
+    <link href="/css/freedom.ico" rel="shortcut icon">
 
     {$this->registerCssFile('/vendor/foundation/css/foundation.min.css')}
     {$this->registerCssFile('/vendor/semantic/packaged/css/semantic.min.css')}
