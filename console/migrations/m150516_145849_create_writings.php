@@ -17,7 +17,7 @@ class m150516_145849_create_writings extends Migration
             'created_at' => Schema::TYPE_TIMESTAMP . ' NOT NULL DEFAULT CURRENT_TIMESTAMP',
         ], Common::getTableOptions($this->db));
 
-        $this->addForeignKey('writings_domain_id', '{{%writings}}', 'domain_id', '{{%domain}}', 'id', 'RESTRICT', 'CASCADE');
+        $this->addForeignKey('writings_domain_id', '{{%writings}}', 'domain_id', '{{%domain}}', 'id', 'CASCADE', 'CASCADE');
     }
 
     public function safeDown()

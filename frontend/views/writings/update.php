@@ -13,7 +13,7 @@ $this->params['breadcrumbs'][] = 'Update';
 <div class="writings-update">
 
     <h1><?= Html::encode($this->title) ?></h1>
-
+    <?php $model->content = str_replace("<br>", "\n", $model->content) ?>
     <?= $this->render('_form', [
         'model' => $model,
     ]) ?>
