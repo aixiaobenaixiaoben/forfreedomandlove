@@ -99,6 +99,9 @@ class Writings extends \yii\db\ActiveRecord
         if ($domain_id) {
             $writings->andWhere(['domain_id' => $domain_id]);
         }
-        return $writings->orderBy(['created_at' => 'DESC'])->all();
+        return $writings->orderBy('created_at DESC')->all();
     }
 }
+
+
+
