@@ -28,6 +28,21 @@ $(function () {
 
 });
 
+function record(state) {
+
+    var result = state + $score.text();
+    var data = {};
+    data.res = result;
+
+    $.ajax({
+        url: '/index/record',
+        type: 'post',
+        data: data,
+        dataType: 'json',
+        success: function (res) {
+        }
+    });
+}
 
 /**
  * 根据键盘响应推进游戏
@@ -126,8 +141,10 @@ document.addEventListener('touchend', function (event) {
 function isgameover() {
     if (nospace(board) && nomove(board)) {
         gameover("Game Over");
+        record('Over-');
     } else if (gototop()) {
         gameover("Reach Top");
+        record('Top-');
     }
 }
 

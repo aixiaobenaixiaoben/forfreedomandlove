@@ -66,6 +66,7 @@ class Writings extends \yii\db\ActiveRecord
         return parent::beforeSave($insert);
     }
 
+
     /**
      * @return \yii\db\ActiveQuery
      */

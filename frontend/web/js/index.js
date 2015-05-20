@@ -1,12 +1,15 @@
 $(function () {
 
-    initHoverColor();
-    initColorOfTagIcon();
+    cutUpContent();
+
     initBoardLeftPadding();
     initContactPadding();
+
+    initHoverColor();
+    initColorOfTagIcon();
+
     listenMenuIconClick();
     listenSubmitMessage();
-    cutUpContent();
 
 });
 
@@ -14,19 +17,21 @@ function cutUpContent() {
     var containers = $('.board .item .content-summary h5');
     containers.each(function () {
         var content = $(this).text();
-        content = content.substring(0, 100);
+        content = content.substring(0, 90);
         $(this).text(content + '[……]');
     });
 }
 
 function listenSubmitMessage() {
 
+    var contact = $('.form .contact');
+
     var preg = /^\w+(\.\w+)*@\w+(\.\w+)+$/;
     $('.form .contact .send-button').click(function () {
-        var name = $.trim(form.find('#guest-name').val());
-        var email = $.trim(form.find('#guest-email').val());
-        var title = $.trim(form.find('#guest-title').val());
-        var content = $.trim(form.find('#guest-content').val());
+        var name = $.trim(contact.find('#guest-name').val());
+        var email = $.trim(contact.find('#guest-email').val());
+        var title = $.trim(contact.find('#guest-title').val());
+        var content = $.trim(contact.find('#guest-content').val());
 
         if (name == '') {
             alert('是不是该留一下您的芳名呢');
@@ -60,12 +65,15 @@ function listenSubmitMessage() {
             data: data,
             dataType: 'json',
             success: function (res) {
-                alert('感谢你的留言,我会尽快通过邮件和你取得联系');
-                location.href = 'http://freedom.forfreedomandlove.com';
+                if (res.success) {
+                    alert('感谢你的留言,我会尽快通过邮件和你取得联系');
+                    location.href = 'http://freedom.forfreedomandlove.com';
+                } else {
+                    alert('sorry,留言没有成功记录下来,可能发生了什么不对的事情,要不再试一次？^o^');
+                }
             },
             error: function (res) {
-                alert('sorry,留言没有成功记录下来,可能发生了什么不对的事情,再试一次看看怎么样');
-                location.href = 'http://freedom.forfreedomandlove.com/index/contact';
+                alert('sorry,留言没有成功记录下来,可能发生了什么不对的事情,要不再试一次？^o^');
             }
         });
     });

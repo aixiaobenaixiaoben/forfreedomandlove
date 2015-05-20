@@ -12,7 +12,7 @@
                 <input type="text" id="guest-title">
                 <label for="guest-content"><h5>留言</h5></label>
                 <textarea style="background-color:#2E2938" rows="5" id="guest-content"
-                          placeholder="Your Message Here…………如果移动设备上无法发送留言,可以在PC上面重试"></textarea>
+                          placeholder="Your Message Here"></textarea>
 
                 <div class="bottom-button">
                     <div class="large-6 columns">

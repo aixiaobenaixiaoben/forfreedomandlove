@@ -129,4 +129,13 @@ class IndexController extends Controller
         }
         AjaxResponse::fail($form->errors);
     }
+
+    public function actionRecord()
+    {
+        if (isset($_POST['res'])) {
+            $massage = $_POST['res'];
+            $massage = addslashes($massage);
+            Log::countVisit($massage);
+        }
+    }
 }
