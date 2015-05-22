@@ -4,7 +4,6 @@ namespace frontend\controllers;
 
 use common\models\Domain;
 use common\models\Log;
-use common\models\Relationship;
 use common\models\Tag;
 use common\models\Writings;
 use yii\web\Controller;
@@ -54,13 +53,14 @@ class ProgramController extends Controller
 
     public function actionTag($id)
     {
+        /**@var Tag $tag */
         $tag = Tag::findOne(['id' => $id, 'type' => Writings::TYPE_OF_PROGRAMING]);
 
         if (!$tag) {
             $this->redirect('/');
         }
 
-        $relationships = Relationship::getList($id);
+        $relationships = $tag->relationships;
         $writings = [];
         foreach ($relationships as $relationship) {
             $writing = $relationship->writings;

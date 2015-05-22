@@ -5,7 +5,6 @@ namespace frontend\controllers;
 use common\models\AjaxResponse;
 use common\models\Domain;
 use common\models\Log;
-use common\models\Relationship;
 use common\models\Tag;
 use common\models\Writings;
 use frontend\models\CreateContactForm;
@@ -59,12 +58,13 @@ class IndexController extends Controller
 
     public function actionTag($id)
     {
+        /**@var Tag $tag */
         $tag = Tag::findOne($id);
         if (!$tag) {
             $this->redirect('/');
         }
 
-        $relationships = Relationship::getList($id);
+        $relationships = $tag->relationships;
         $writings = [];
         foreach ($relationships as $relationship) {
             $writing = $relationship->writings;
@@ -83,11 +83,12 @@ class IndexController extends Controller
 
     public function actionDomain($id)
     {
+        /** @var Domain $domain */
         $domain = Domain::findOne($id);
         if (!$domain) {
             $this->redirect('/');
         }
-        $writings = Writings::getList(null, $id);
+        $writings = $domain->writings;
         $domains = Domain::getList();
         $tags = Tag::getList();
 
@@ -109,7 +110,6 @@ class IndexController extends Controller
             Log::countVisit($massage);
         }
 
-        $writings = Writings::getList();
         $domains = Domain::getList();
         $tags = Tag::getList();
 
@@ -117,7 +117,6 @@ class IndexController extends Controller
             'tag' => '',
             'tags' => $tags,
             'domains' => $domains,
-            'writings' => $writings,
         ]);
     }
 

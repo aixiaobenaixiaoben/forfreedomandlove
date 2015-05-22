@@ -16,7 +16,7 @@
 
             <div class="content">
                 <h5>
-                    {$writing.content}
+                    {$writing.content|nl2br}
                 </h5>
             </div>
 

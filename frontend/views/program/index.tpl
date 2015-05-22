@@ -15,7 +15,7 @@
                         <a href="/program/{$writing.id}"><h5>{$writing.title}</h5></a>
                     </div>
                     <div class="content-summary">
-                        <h5>{$writing.content}</h5>
+                        <h5>{$writing.content|truncate:100:"[……]"}</h5>
                     </div>
                     <div class="about">
                         <div class="large-5 columns">

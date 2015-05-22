@@ -66,8 +66,4 @@ class Relationship extends \yii\db\ActiveRecord
         return $this->hasOne(Writings::className(), ['id' => 'writings_id']);
     }
 
-    public static function getList($tag_id)
-    {
-        return self::find()->where(['tag_id' => $tag_id])->with('writings')->all();
-    }
 }

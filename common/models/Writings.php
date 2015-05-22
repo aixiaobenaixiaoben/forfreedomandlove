@@ -60,12 +60,6 @@ class Writings extends \yii\db\ActiveRecord
         ];
     }
 
-    public function beforeSave($insert)
-    {
-        $this->content = str_replace("\n", "<br>", $this->content);
-        return parent::beforeSave($insert);
-    }
-
 
     /**
      * @return \yii\db\ActiveQuery

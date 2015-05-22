@@ -55,7 +55,7 @@ class Tag extends \yii\db\ActiveRecord
      */
     public function getRelationships()
     {
-        return $this->hasMany(Relationship::className(), ['tag_id' => 'id']);
+        return $this->hasMany(Relationship::className(), ['tag_id' => 'id'])->orderBy('created_at DESC');
     }
 
     public static function getList($type = null)

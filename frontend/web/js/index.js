@@ -1,7 +1,5 @@
 $(function () {
 
-    cutUpContent();
-
     initBoardLeftPadding();
     initContactPadding();
 
@@ -12,15 +10,6 @@ $(function () {
     listenSubmitMessage();
 
 });
-
-function cutUpContent() {
-    var containers = $('.board .item .content-summary h5');
-    containers.each(function () {
-        var content = $(this).text();
-        content = content.substring(0, 90);
-        $(this).text(content + '[……]');
-    });
-}
 
 function listenSubmitMessage() {
 
