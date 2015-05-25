@@ -20,6 +20,13 @@ class IndexController extends Controller
         return parent::beforeAction($action);
     }
 
+    public function actionError()
+    {
+        $message = 'Error_Url:' . $_SERVER['REQUEST_URI'];
+        Log::countVisit($message);
+        $this->redirect('/');
+    }
+
     public function actionIndex()
     {
         Log::countVisit('HomePage');

@@ -52,7 +52,7 @@ return [
             ],
         ],
         'errorHandler' => [
-            'errorAction' => 'index',
+            'errorAction' => 'index/error',
         ],
     ],
     'params' => $params,
