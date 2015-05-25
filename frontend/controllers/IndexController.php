@@ -22,8 +22,11 @@ class IndexController extends Controller
 
     public function actionError()
     {
-        $message = 'Error_Url:' . $_SERVER['REQUEST_URI'];
-        Log::countVisit($message);
+        if (isset($_SERVER['REQUEST_URI'])) {
+            $message = 'Error_Url:' . $_SERVER['REQUEST_URI'];
+            Log::countVisit($message);
+        }
+        
         $this->redirect('/');
     }
 
