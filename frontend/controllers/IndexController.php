@@ -23,10 +23,10 @@ class IndexController extends Controller
     public function actionError()
     {
         if (isset($_SERVER['REQUEST_URI'])) {
-            $message = 'Error_Url:' . $_SERVER['REQUEST_URI'];
+            $message = 'Error_Url:' . addslashes($_SERVER['REQUEST_URI']);
             Log::countVisit($message);
         }
-        
+
         $this->redirect('/');
     }
 
