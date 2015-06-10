@@ -1,6 +1,7 @@
 <?php
 namespace frontend\controllers;
 
+use common\models\Log;
 use Yii;
 use common\models\LoginForm;
 use frontend\models\PasswordResetRequestForm;
@@ -80,6 +81,7 @@ class SiteController extends Controller
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
+            Log::countVisit('Login');
             return $this->goBack();
         } else {
             return $this->render('login', [
