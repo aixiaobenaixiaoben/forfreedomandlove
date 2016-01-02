@@ -20,6 +20,7 @@ class IndexController extends Controller
         return parent::beforeAction($action);
     }
 
+
     public function actionError()
     {
         if (isset($_SERVER['REQUEST_URI'])) {

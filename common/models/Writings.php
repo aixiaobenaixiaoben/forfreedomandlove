@@ -23,6 +23,7 @@ class Writings extends \yii\db\ActiveRecord
     CONST TYPE_OF_PROGRAMING = 1;
     CONST TYPE_OF_LITERATURE = 2;
 
+
     /**
      * @inheritdoc
      */

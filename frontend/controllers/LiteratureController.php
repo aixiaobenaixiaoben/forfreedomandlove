@@ -18,6 +18,9 @@ class LiteratureController extends Controller
     }
 
 
+
+
+
     public function actionIndex()
     {
         $writings = Writings::getList(Writings::TYPE_OF_LITERATURE);
