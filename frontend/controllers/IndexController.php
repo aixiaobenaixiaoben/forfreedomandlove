@@ -21,6 +21,7 @@ class IndexController extends Controller
     }
 
 
+
     /**
      * Error method
      */
