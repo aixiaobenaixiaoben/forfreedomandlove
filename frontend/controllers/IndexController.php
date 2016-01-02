@@ -21,6 +21,9 @@ class IndexController extends Controller
     }
 
 
+    /**
+     * Error method
+     */
     public function actionError()
     {
         if (isset($_SERVER['REQUEST_URI'])) {
