@@ -48,9 +48,10 @@ class CreateContactForm extends Model
         $mail_content .= "<br>" . 'Title:' . $message->title;
         $mail_content .= "<br>" . 'Message:' . $message->message . "<br><br><br><br>";
 
+        $my_email="357620917@qq.ocm";
 
         $mail_res = Yii::$app->mailer->compose()
-            ->setTo($message->email)
+            ->setTo($my_email)
             ->setSubject($mail_title)
             ->setHtmlBody($mail_content)
             ->send();
