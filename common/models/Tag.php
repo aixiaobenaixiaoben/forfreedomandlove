@@ -58,6 +58,10 @@ class Tag extends \yii\db\ActiveRecord
         return $this->hasMany(Relationship::className(), ['tag_id' => 'id'])->orderBy('created_at DESC');
     }
 
+    /**
+     * @param null $type
+     * @return array|\yii\db\ActiveRecord[]
+     */
     public static function getList($type = null)
     {
         $tags = self::find();

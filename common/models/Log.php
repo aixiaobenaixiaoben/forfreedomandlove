@@ -66,6 +66,10 @@ class Log extends \yii\db\ActiveRecord
         return $this->hasOne(Writings::className(), ['id' => 'writings_id']);
     }
 
+    /**
+     * get the data about the visitor
+     * @return mixed
+     */
     private static function getData()
     {
         $ip = $_SERVER['REMOTE_ADDR'];
@@ -76,6 +80,10 @@ class Log extends \yii\db\ActiveRecord
         return $json;
     }
 
+    /**
+     * create a log for the visitor who has visited a particular article
+     * @param $writing_id
+     */
     public static function createLog($writing_id)
     {
         $json = self::getData();
@@ -89,6 +97,10 @@ class Log extends \yii\db\ActiveRecord
         $log->save();
     }
 
+    /**
+     * when visitor visit the homepage ,create a special log to sign that he has visit my homepage
+     * @param $massage
+     */
     public static function countVisit($massage)
     {
         $json = self::getData();

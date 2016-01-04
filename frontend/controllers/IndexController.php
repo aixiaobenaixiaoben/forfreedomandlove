@@ -25,7 +25,7 @@ class IndexController extends Controller
 
     
     /**
-     * Error method
+     * default method to redirect to homepage
      */
     public function actionError()
     {
@@ -37,6 +37,10 @@ class IndexController extends Controller
         $this->redirect('/');
     }
 
+    /**
+     * home page
+     * @return string
+     */
     public function actionIndex()
     {
         Log::countVisit('HomePage');
@@ -53,6 +57,11 @@ class IndexController extends Controller
         ]);
     }
 
+    /**
+     * display a article
+     * @param $id
+     * @return string
+     */
     public function actionView($id)
     {
         $writing = Writings::findOne($id);
@@ -73,6 +82,11 @@ class IndexController extends Controller
     }
 
 
+    /**
+     * display a variety of articles of one tag
+     * @param $id
+     * @return string
+     */
     public function actionTag($id)
     {
         /**@var Tag $tag */
@@ -98,6 +112,11 @@ class IndexController extends Controller
         ]);
     }
 
+    /**
+     * display a variety of articles belonging to a particular domain
+     * @param $id
+     * @return string
+     */
     public function actionDomain($id)
     {
         /** @var Domain $domain */
@@ -117,6 +136,10 @@ class IndexController extends Controller
         ]);
     }
 
+    /**
+     * display the page of Contact
+     * @return string
+     */
     public function actionContact()
     {
         $this->getView()->title = 'Contact';
@@ -137,6 +160,9 @@ class IndexController extends Controller
         ]);
     }
 
+    /**
+     * handle the message the visitor submit
+     */
     public function actionMessage()
     {
         $form = new CreateContactForm();
@@ -146,6 +172,9 @@ class IndexController extends Controller
         AjaxResponse::fail($form->errors);
     }
 
+    /**
+     * record the score of the game
+     */
     public function actionRecord()
     {
         if (isset($_POST['res'])) {

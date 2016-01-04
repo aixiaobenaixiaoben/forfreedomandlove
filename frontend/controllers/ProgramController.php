@@ -18,6 +18,10 @@ class ProgramController extends Controller
     }
 
 
+    /**
+     * display the articles about programing
+     * @return string
+     */
     public function actionIndex()
     {
         $writings = Writings::getList(Writings::TYPE_OF_PROGRAMING);
@@ -32,6 +36,11 @@ class ProgramController extends Controller
         ]);
     }
 
+    /**
+     * view a particular article about programing
+     * @param $id
+     * @return string
+     */
     public function actionView($id)
     {
         $writing = Writings::findOne(['id' => $id, 'type' => Writings::TYPE_OF_PROGRAMING,]);
@@ -51,6 +60,11 @@ class ProgramController extends Controller
         ]);
     }
 
+    /**
+     * display a variety of article of a particular tag
+     * @param $id
+     * @return string
+     */
     public function actionTag($id)
     {
         /**@var Tag $tag */
@@ -81,6 +95,11 @@ class ProgramController extends Controller
         ]);
     }
 
+    /**
+     * display a variety of articles of a particular domain
+     * @param $id
+     * @return string
+     */
     public function actionDomain($id)
     {
         $domain = Domain::findOne(['id' => $id, 'type' => Writings::TYPE_OF_PROGRAMING]);

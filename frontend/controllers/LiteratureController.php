@@ -18,9 +18,10 @@ class LiteratureController extends Controller
     }
 
 
-
-
-
+    /**
+     * display a variety of articles about literature
+     * @return string
+     */
     public function actionIndex()
     {
         $writings = Writings::getList(Writings::TYPE_OF_LITERATURE);
@@ -35,6 +36,11 @@ class LiteratureController extends Controller
         ]);
     }
 
+    /**
+     * view a article about literature
+     * @param $id
+     * @return string
+     */
     public function actionView($id)
     {
         $writing = Writings::findOne(['id' => $id, 'type' => Writings::TYPE_OF_LITERATURE,]);
@@ -54,6 +60,11 @@ class LiteratureController extends Controller
         ]);
     }
 
+    /**
+     * display a variety of articles of a particular tag
+     * @param $id
+     * @return string
+     */
     public function actionTag($id)
     {
         /**@var Tag $tag */
@@ -84,6 +95,11 @@ class LiteratureController extends Controller
         ]);
     }
 
+    /**
+     * display a variety of articles of a particular domain
+     * @param $id
+     * @return string
+     */
     public function actionDomain($id)
     {
         $domain = Domain::findOne(['id' => $id, 'type' => Writings::TYPE_OF_LITERATURE]);

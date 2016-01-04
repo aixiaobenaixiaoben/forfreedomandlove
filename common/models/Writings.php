@@ -86,6 +86,11 @@ class Writings extends \yii\db\ActiveRecord
         return $this->hasOne(Domain::className(), ['id' => 'domain_id']);
     }
 
+    /**
+     * @param null $type
+     * @param null $domain_id
+     * @return array|\yii\db\ActiveRecord[]
+     */
     public static function getList($type = null, $domain_id = null)
     {
         $writings = self::find();
