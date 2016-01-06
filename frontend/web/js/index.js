@@ -11,6 +11,9 @@ $(function () {
 
 });
 
+/**
+ * listen and send the message the visitor submits to server
+ */
 function listenSubmitMessage() {
 
     var contact = $('.form .contact');
@@ -68,13 +71,19 @@ function listenSubmitMessage() {
     });
 }
 
+/**
+ * load the page of contact
+ */
 function initContactPadding() {
     if (window.innerWidth > 1024) {
         $('.form .contact').addClass('petty');
     }
 }
 
-//同时为了配合foundation的大中小尺寸
+/**
+ * init the left part of the page
+ * collaborate with the size of foundation framework
+ */
 function initBoardLeftPadding() {
     if (window.innerWidth < 1024) {
         $('.board').css({'padding-left': '10px'});
@@ -92,6 +101,9 @@ function initBoardLeftPadding() {
     }
 }
 
+/**
+ * init the color of tag icon
+ */
 function initColorOfTagIcon() {
     $('.side .tag .label:odd').removeClass('teal').addClass('purple');
 }
@@ -102,7 +114,9 @@ function listenMenuIconClick() {
     });
 }
 
-
+/**
+ * listen and change the color of part hovered gradually
+ */
 function initHoverColor() {
     $('header .nav h4').hover(
         function () {
