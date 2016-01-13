@@ -25,6 +25,7 @@ class AdminController extends Controller
         ];
     }
 
+
     public $layout = 'site';
 
     public function beforeAction($action)
