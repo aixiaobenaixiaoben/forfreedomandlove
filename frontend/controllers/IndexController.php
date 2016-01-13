@@ -21,9 +21,6 @@ class IndexController extends Controller
     }
 
 
-
-
-    
     /**
      * default method to redirect to homepage
      */
