@@ -59,7 +59,7 @@ function listenSubmitMessage() {
             success: function (res) {
                 if (res.success) {
                     alert('感谢你的留言,我会尽快通过邮件和你取得联系');
-                    location.href = 'http://freedom.forfreedomandlove.com';
+                    location.href = '/';
                 } else {
                     alert('sorry,留言没有成功记录下来,可能发生了什么不对的事情,要不再试一次？^o^');
                 }
