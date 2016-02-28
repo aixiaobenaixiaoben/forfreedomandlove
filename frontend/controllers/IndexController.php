@@ -31,7 +31,7 @@ class IndexController extends Controller
             Log::countVisit($message);
         }
 
-        $this->redirect('/');
+        $this->goHome();
     }
 
     /**
@@ -63,7 +63,7 @@ class IndexController extends Controller
     {
         $writing = Writings::findOne($id);
         if (!$writing) {
-            $this->redirect('/');
+            $this->goHome();
         }
 
         Log::createLog($id);
@@ -89,7 +89,7 @@ class IndexController extends Controller
         /**@var Tag $tag */
         $tag = Tag::findOne($id);
         if (!$tag) {
-            $this->redirect('/');
+            $this->goHome();
         }
 
         $relationships = $tag->relationships;
@@ -119,7 +119,7 @@ class IndexController extends Controller
         /** @var Domain $domain */
         $domain = Domain::findOne($id);
         if (!$domain) {
-            $this->redirect('/');
+            $this->goHome();
         }
         $writings = $domain->writings;
         $domains = Domain::getList();

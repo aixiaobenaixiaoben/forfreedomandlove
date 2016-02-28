@@ -46,7 +46,7 @@ class ProgramController extends Controller
         $writing = Writings::findOne(['id' => $id, 'type' => Writings::TYPE_OF_PROGRAMING,]);
 
         if (!$writing) {
-            $this->redirect('/');
+            $this->goHome();
         }
         Log::createLog($id);
 
@@ -71,7 +71,7 @@ class ProgramController extends Controller
         $tag = Tag::findOne(['id' => $id, 'type' => Writings::TYPE_OF_PROGRAMING]);
 
         if (!$tag) {
-            $this->redirect('/');
+            $this->goHome();
         }
 
         $relationships = $tag->relationships;
@@ -105,7 +105,7 @@ class ProgramController extends Controller
         $domain = Domain::findOne(['id' => $id, 'type' => Writings::TYPE_OF_PROGRAMING]);
 
         if (!$domain) {
-            $this->redirect('/');
+            $this->goHome();
         }
 
         $writings = Writings::getList(Writings::TYPE_OF_PROGRAMING, $id);

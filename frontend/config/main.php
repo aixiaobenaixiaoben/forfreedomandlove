@@ -13,6 +13,7 @@ return [
     'controllerNamespace' => 'frontend\controllers',
     'language' => 'zh_CN',
     'defaultRoute' => 'index',
+    'homeUrl' => 'http://dev.freedom.forfreedomandlove.com/',
     'components' => [
         'user' => [
             'identityClass' => 'common\models\User',
@@ -31,6 +32,7 @@ return [
             'enablePrettyUrl' => true,
             'enableStrictParsing' => false,
             'showScriptName' => false,
+            'baseUrl' => 'http://dev.freedom.forfreedomandlove.com',
 //            'suffix' => '.html',//设置URL后缀
             'rules' => [
                 '<id:\d+>' => 'index/view',

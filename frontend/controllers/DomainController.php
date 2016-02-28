@@ -31,7 +31,7 @@ class DomainController extends Controller
     public function beforeAction($action)
     {
         if (Yii::$app->user->isGuest) {
-            $this->redirect('/');
+            $this->goHome();
         }
         return parent::beforeAction($action);
     }

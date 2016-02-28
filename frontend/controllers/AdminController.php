@@ -31,7 +31,7 @@ class AdminController extends Controller
     public function beforeAction($action)
     {
         if (Yii::$app->user->isGuest) {
-            $this->redirect('/');
+            $this->goHome();
         }
         return parent::beforeAction($action);
     }
@@ -42,16 +42,16 @@ class AdminController extends Controller
      */
     public function actionIndex()
     {
-        $path_handle = opendir(__DIR__);
-        $models_path = [];
-        while ($file = readdir($path_handle)) {
-            if ($pos = strpos($file, 'Controller.php')) {
-                $file = substr_replace($file, '', $pos);
-                $models_path[$file] = Inflector::camel2id($file, '-');
-            }
-        }
+        $models = [
+            'domain',
+            'log',
+            'message',
+            'relationship',
+            'tag',
+            'writings',
+        ];
         return $this->render('index', [
-            'models' => $models_path,
+            'models' => $models,
         ]);
     }
 
