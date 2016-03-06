@@ -14,13 +14,6 @@ use yii\web\Controller;
 class IndexController extends Controller
 {
 
-    public function beforeAction($action)
-    {
-        $this->enableCsrfValidation = false;
-        return parent::beforeAction($action);
-    }
-
-
     /**
      * default method to redirect to homepage
      */
@@ -150,10 +143,12 @@ class IndexController extends Controller
         $domains = Domain::getList();
         $tags = Tag::getList();
 
+        $csrf = Yii::$app->request->csrfToken;
         return $this->render('contact', [
             'tag' => '',
             'tags' => $tags,
             'domains' => $domains,
+            'csrf' => $csrf,
         ]);
     }
 

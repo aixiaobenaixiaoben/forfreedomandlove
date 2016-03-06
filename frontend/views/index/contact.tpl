@@ -4,6 +4,7 @@
 
             <div class="contact">
                 <h4>通过邮件联系我</h4>
+                <input type="hidden" id="csrf" value={$csrf}>
                 <label for="guest-name"><h5>你的姓名</h5></label>
                 <input type="text" id="guest-name">
                 <label for="guest-email"><h5>你的邮箱</h5></label>

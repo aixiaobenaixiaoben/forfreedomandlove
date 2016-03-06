@@ -51,6 +51,7 @@ function listenSubmitMessage() {
         data.email = email;
         data.title = title;
         data.content = content;
+        data._csrf = $.trim(contact.find('#csrf').val());
         $.ajax({
             url: '/index/message',
             type: 'post',
